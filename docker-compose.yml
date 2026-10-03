@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: cineseat-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: cineseat_user
+      POSTGRES_PASSWORD: cineseat123
+      POSTGRES_DB: cineseat
+    ports:
+      - "5432:5432"
+    volumes:
+      - cineseat_db_data:/var/lib/postgresql/data
+
+volumes:
+  cineseat_db_data:
